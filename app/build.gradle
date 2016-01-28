@@ -2,6 +2,9 @@ apply plugin: 'com.android.application'
 // This does not break the build when Android Studio is missing the JRebel for Android plugin.
 apply plugin: 'com.zeroturnaround.jrebel.android'
 
+
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -27,4 +30,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'me.drakeet.materialdialog:library:1.2.8'
     compile 'com.github.vignesh-iopex:confirmdialog:2.0-rc1'
+
+    compile 'net.soulwolf.widget:dialogBuilder:1.0.0'
+
 }
+
