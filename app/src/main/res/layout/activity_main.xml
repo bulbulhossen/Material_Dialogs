@@ -6,6 +6,7 @@
     android:orientation="vertical"
     tools:context=".MyActivity">
 
+<!--
 
     <Button
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:layout_margin="16dp"
         android:id="@+id/button"
         android:onClick="init"/>
+-->
 
 
 
