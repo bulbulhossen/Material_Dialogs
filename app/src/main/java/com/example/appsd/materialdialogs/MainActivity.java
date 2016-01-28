@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import me.drakeet.materialdialog.MaterialDialog;
+import com.github.vignesh_iopex.confirmdialog.Confirm;
+import com.github.vignesh_iopex.confirmdialog.Dialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,40 +15,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button butt  = (Button) findViewById(R.id.button);
-        butt.setOnClickListener(new View.OnClickListener() {
+        Button bt = (Button) findViewById(R.id.button);
+        bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final MaterialDialog mMaterialDialog = new MaterialDialog(MainActivity.this)
-                        .setTitle("MaterialDialog")
-                        .setMessage("Hello world!")
-                        .setPositiveButton("OK", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                             finish();
 
-                            }
-                        })
-                        .setNegativeButton("CANCEL", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                               // mMaterialDialog.dismiss();
 
-                            }
-                        });
-
-                mMaterialDialog.show();
-
-// You can change the message anytime. before show
-                mMaterialDialog.setTitle("I love");
-                mMaterialDialog.show();
-// You can change the message anytime. after show
-                mMaterialDialog.setMessage("Bulbul");
+                Confirm.using(MainActivity.this).ask("Fire missles?").onPositive("Yes", new Dialog.OnClickListener() {
+                    @Override
+                    public void onClick(Dialog dialog, int which) {
+                        /*launchMissles();*/finish();
+                    }
+                }).onNegative("No", new Dialog.OnClickListener() {
+                    @Override
+                    public void onClick(Dialog dialog, int which) {
+                       // sendFalseAlarm();
+                    }
+                }).build().show();
             }
+
+
         });
-
-
-
-
     }
 }
